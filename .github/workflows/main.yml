@@ -8,17 +8,11 @@ on:
       - master
       - release/*
 jobs:
-  build:
-    if: "!contains(github.event.head_commit.message, '[skip-ci]')"
+  firebase-deploy:
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@master
-
-      - uses: actions/cache@master
-        with:
-          path: ~/.npm
-          key: npm-packages
 
       - uses: actions/setup-node@master
         with:
@@ -26,9 +20,7 @@ jobs:
 
       - run: npm install
 
-      - uses: zw3428/firebase-action@master
-        with:
-          args: deploy --only hosting
+      - run: npm run deploy
         env:
           CI: true
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
