@@ -1,5 +1,8 @@
 {
-    "scripts": {
-        "deploy": "firebase deploy --only hosting"
-    }
+  "scripts": {
+    "deploy": "firebase deploy --only hosting"
+  },
+  "dependencies": {
+    "firebase-tools": "^9.1.0",
+  }
 }
