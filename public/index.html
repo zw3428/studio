@@ -1,89 +1,168 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Welcome to Firebase Hosting</title>
+<!DOCTYPE html><html><head><meta charset="utf-8"><link rel="icon" type="image/png" sizes="96x96" href="/favicon.ico"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><title>TuneKey Web Portal</title><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous"><style>#outerBg {
+      width: 100vw;
+      height: 100vh;
+      position: fixed;
+      z-index: 999;
+      top: 0;
+      left: 0;
+      background-color: white;
+    }
 
-    <!-- update the version number as needed -->
-    <script defer src="/__/firebase/8.2.1/firebase-app.js"></script>
-    <!-- include only the Firebase features as you need -->
-    <script defer src="/__/firebase/8.2.1/firebase-auth.js"></script>
-    <script defer src="/__/firebase/8.2.1/firebase-database.js"></script>
-    <script defer src="/__/firebase/8.2.1/firebase-firestore.js"></script>
-    <script defer src="/__/firebase/8.2.1/firebase-functions.js"></script>
-    <script defer src="/__/firebase/8.2.1/firebase-messaging.js"></script>
-    <script defer src="/__/firebase/8.2.1/firebase-storage.js"></script>
-    <script defer src="/__/firebase/8.2.1/firebase-analytics.js"></script>
-    <script defer src="/__/firebase/8.2.1/firebase-remote-config.js"></script>
-    <script defer src="/__/firebase/8.2.1/firebase-performance.js"></script>
-    <!-- 
-      initialize the SDK after all desired features are loaded, set useEmulator to false
-      to avoid connecting the SDK to running emulators.
-    -->
-    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+    #circles {
+      width: fit-content;
+      height: 0.64rem;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+    }
 
-    <style media="screen">
-      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
-      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
-      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
-      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
-      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
-      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
-      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
-      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
-      @media (max-width: 600px) {
-        body, #message { margin-top: 0; background: white; box-shadow: none; }
-        body { border-top: 16px solid #ffa100; }
+    .circle {
+      width: 0.64rem;
+      height: 0.64rem;
+      border-radius: 1rem;
+      background-color: #71d9c2;
+      margin: 0 0.2rem;
+      display: inline-block;
+    }
+
+    .c1,
+    .c2,
+    .c3,
+    .c4,
+    .c5 {
+      animation: loading 2s infinite;
+      -webkit-animation: loading 2s infinite;
+      -moz-animation: loading 2s infinite;
+      -o-animation: loading 2s infinite;
+    }
+
+    .c2 {
+      animation-delay: .15s;
+      -webkit-animation-delay: .15s;
+      -moz-animation-delay: .15s;
+      -o-animation-delay: .15s;
+    }
+
+    .c3 {
+      animation-delay: .3s;
+      -webkit-animation-delay: .3s;
+      -moz-animation-delay: .3s;
+      -o-animation-delay: .3s;
+    }
+
+    .c4 {
+      animation-delay: .45s;
+      -webkit-animation-delay: .45s;
+      -moz-animation-delay: .45s;
+      -o-animation-delay: .45s;
+    }
+
+    .c5 {
+      animation-delay: .6s;
+      -webkit-animation-delay: .6s;
+      -moz-animation-delay: .6s;
+      -o-animation-delay: .6s;
+    }
+
+    @keyframes loading {
+      0% {
+        transform: translateY(0)
       }
-    </style>
-  </head>
-  <body>
-    <div id="message">
-      <h2>Welcome</h2>
-      <h1>Firebase Hosting Setup Complete</h1>
-      <p>You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something extraordinary!</p>
-      <a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a>
-    </div>
-    <p id="load">Firebase SDK Loading&hellip;</p>
 
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const loadEl = document.querySelector('#load');
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-        // // The Firebase SDK is initialized and available here!
-        //
-        // firebase.auth().onAuthStateChanged(user => { });
-        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
-        // firebase.firestore().doc('/foo/bar').get().then(() => { });
-        // firebase.functions().httpsCallable('yourFunction')().then(() => { });
-        // firebase.messaging().requestPermission().then(() => { });
-        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
-        // firebase.analytics(); // call to activate
-        // firebase.analytics().logEvent('tutorial_completed');
-        // firebase.performance(); // call to activate
-        //
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+      35% {
+        transform: translateY(0);
+        opacity: .3
+      }
 
-        try {
-          let app = firebase.app();
-          let features = [
-            'auth', 
-            'database', 
-            'firestore',
-            'functions',
-            'messaging', 
-            'storage', 
-            'analytics', 
-            'remoteConfig',
-            'performance',
-          ].filter(feature => typeof app[feature] === 'function');
-          loadEl.textContent = `Firebase SDK loaded with ${features.join(', ')}`;
-        } catch (e) {
-          console.error(e);
-          loadEl.textContent = 'Error loading the Firebase SDK, check the console.';
-        }
-      });
-    </script>
-  </body>
-</html>
+      50% {
+        transform: translateY(-20px);
+        opacity: .8
+      }
+
+      70% {
+        transform: translateY(3px);
+        opacity: .8
+      }
+
+      85% {
+        transform: translateY(-3px)
+      }
+    }
+
+    @-webkit-keyframes loading {
+      0% {
+        transform: translateY(0)
+      }
+
+      35% {
+        transform: translateY(0);
+        opacity: .3
+      }
+
+      50% {
+        transform: translateY(-20px);
+        opacity: .8
+      }
+
+      70% {
+        transform: translateY(3px);
+        opacity: .8
+      }
+
+      85% {
+        transform: translateY(-3px)
+      }
+    }
+
+    @-moz-keyframes loading {
+      0% {
+        transform: translateY(0)
+      }
+
+      35% {
+        transform: translateY(0);
+        opacity: .3
+      }
+
+      50% {
+        transform: translateY(-20px);
+        opacity: .8
+      }
+
+      70% {
+        transform: translateY(3px);
+        opacity: .8
+      }
+
+      85% {
+        transform: translateY(-3px)
+      }
+    }
+
+    @-o-keyframes loading {
+      0% {
+        transform: translateY(0)
+      }
+
+      35% {
+        transform: translateY(0);
+        opacity: .3
+      }
+
+      50% {
+        transform: translateY(-20px);
+        opacity: .8
+      }
+
+      70% {
+        transform: translateY(3px);
+        opacity: .8
+      }
+
+      85% {
+        transform: translateY(-3px)
+      }
+    }</style><link href="/css/chunk-1021b550.7476b481.css" rel="prefetch"><link href="/css/chunk-12d85532.25963378.css" rel="prefetch"><link href="/css/chunk-2f091033.25963378.css" rel="prefetch"><link href="/css/chunk-2f4d1067.25963378.css" rel="prefetch"><link href="/css/chunk-3752f1f5.e6c420b4.css" rel="prefetch"><link href="/css/chunk-37e62291.e6c420b4.css" rel="prefetch"><link href="/css/chunk-386fd0ca.aa3a36d6.css" rel="prefetch"><link href="/css/chunk-3e3660ec.1fead564.css" rel="prefetch"><link href="/css/chunk-48847448.d429b306.css" rel="prefetch"><link href="/css/chunk-4e9fb018.e6c420b4.css" rel="prefetch"><link href="/css/chunk-7ad0cb0a.7c593073.css" rel="prefetch"><link href="/css/chunk-894e4fa4.f07325a6.css" rel="prefetch"><link href="/css/chunk-c99fb58a.5b19d280.css" rel="prefetch"><link href="/css/components.06ec27db.css" rel="prefetch"><link href="/css/dashboard.38cb6c3e.css" rel="prefetch"><link href="/css/extra.b89af510.css" rel="prefetch"><link href="/css/pages.b2b50211.css" rel="prefetch"><link href="/css/tables.2d3c567b.css" rel="prefetch"><link href="/js/chunk-1021b550.a64c4358.js" rel="prefetch"><link href="/js/chunk-110631c0.2ad784ee.js" rel="prefetch"><link href="/js/chunk-12d85532.9a7d550c.js" rel="prefetch"><link href="/js/chunk-159fec18.4892d007.js" rel="prefetch"><link href="/js/chunk-19900c68.954ceef3.js" rel="prefetch"><link href="/js/chunk-2014af30.da34f449.js" rel="prefetch"><link href="/js/chunk-2d0abe0e.48a9150c.js" rel="prefetch"><link href="/js/chunk-2d0c8447.b2e10563.js" rel="prefetch"><link href="/js/chunk-2d0d8056.3d4e36d5.js" rel="prefetch"><link href="/js/chunk-2d0de8ff.d874e66e.js" rel="prefetch"><link href="/js/chunk-2d0e4599.445c4d5a.js" rel="prefetch"><link href="/js/chunk-2d207ecb.9805cc51.js" rel="prefetch"><link href="/js/chunk-2d208c36.4d8ab74f.js" rel="prefetch"><link href="/js/chunk-2d21e7a3.a6f93730.js" rel="prefetch"><link href="/js/chunk-2d228cce.68f8e14a.js" rel="prefetch"><link href="/js/chunk-2d23860a.885580a4.js" rel="prefetch"><link href="/js/chunk-2f091033.1a47689f.js" rel="prefetch"><link href="/js/chunk-2f4d1067.077a9e16.js" rel="prefetch"><link href="/js/chunk-321df80d.51d9d212.js" rel="prefetch"><link href="/js/chunk-36bcb194.3f0aeb20.js" rel="prefetch"><link href="/js/chunk-3752f1f5.6c6c91d1.js" rel="prefetch"><link href="/js/chunk-37e62291.00e6e2ba.js" rel="prefetch"><link href="/js/chunk-386fd0ca.fb2202c7.js" rel="prefetch"><link href="/js/chunk-38ad3056.7d85326a.js" rel="prefetch"><link href="/js/chunk-3e3660ec.270c6992.js" rel="prefetch"><link href="/js/chunk-48847448.c8fad48e.js" rel="prefetch"><link href="/js/chunk-4cb3f91e.2f966d79.js" rel="prefetch"><link href="/js/chunk-4e9fb018.89920e2b.js" rel="prefetch"><link href="/js/chunk-67896387.3345f7c6.js" rel="prefetch"><link href="/js/chunk-7ad0cb0a.2d358e4b.js" rel="prefetch"><link href="/js/chunk-894e4fa4.17d74b68.js" rel="prefetch"><link href="/js/chunk-8a841d10.310435fc.js" rel="prefetch"><link href="/js/chunk-bc3e56b8.ccac393c.js" rel="prefetch"><link href="/js/chunk-bd8ab312.47c31279.js" rel="prefetch"><link href="/js/chunk-c99fb58a.4f5080cf.js" rel="prefetch"><link href="/js/chunk-d67f8af6.b6b3b4ef.js" rel="prefetch"><link href="/js/components.71d6fdf8.js" rel="prefetch"><link href="/js/dashboard.4c887c5c.js" rel="prefetch"><link href="/js/extra.7b2002a9.js" rel="prefetch"><link href="/js/forms.5f0a2dc5.js" rel="prefetch"><link href="/js/pages.dbeaea26.js" rel="prefetch"><link href="/js/tables.6eeaa72f.js" rel="prefetch"><link href="/css/app.02d4d43d.css" rel="preload" as="style"><link href="/css/chunk-vendors.7b8c7bd6.css" rel="preload" as="style"><link href="/js/app.f75d5449.js" rel="preload" as="script"><link href="/js/chunk-vendors.fc1330a7.js" rel="preload" as="script"><link href="/css/chunk-vendors.7b8c7bd6.css" rel="stylesheet"><link href="/css/app.02d4d43d.css" rel="stylesheet"></head><body style="background-color: #FAFEFD !important"><div class="wrapper" id="app"></div><script src="/js/chunk-vendors.fc1330a7.js"></script><script src="/js/app.f75d5449.js"></script></body></html>
