@@ -1,0 +1,32 @@
+# main.yml
+
+name: test_github_action # Give it any name
+
+on:
+  push:
+    branches:
+      - master
+      - release/*
+jobs:
+  build:
+    if: "!contains(github.event.head_commit.message, '[skip-ci]')"
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@master
+
+      - uses: actions/cache@master
+        with:
+          path: ~/.npm
+          key: npm-packages
+
+      - uses: actions/setup-node@master
+        with:
+          node-version: 14.15.3
+
+      - run: npm install
+
+      - run: npm run deploy
+        env:
+          CI: true
+          FIREBASE_TOKEN: 1//06VfEDp6rY6bMCgYIARAAGAYSNwF-L9IrrjGbthG1HX2Fid-7v3U8YO--0f82VJOCUIVclA0ptWCQ71QlvVKYlMaj-l73Hgb9rIY
