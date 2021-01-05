@@ -1,5 +1,5 @@
 {
     "scripts": {
-        "deploy": "npx firebase deploy"
+        "deploy": "firebase deploy"
     }
 }
