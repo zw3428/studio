@@ -26,7 +26,9 @@ jobs:
 
       - run: npm install
 
-      - run: npm run deploy
+      - uses: zw3428/firebase-action@master
+        with:
+          args: deploy --only hosting
         env:
           CI: true
-          FIREBASE_TOKEN: 1//06VfEDp6rY6bMCgYIARAAGAYSNwF-L9IrrjGbthG1HX2Fid-7v3U8YO--0f82VJOCUIVclA0ptWCQ71QlvVKYlMaj-l73Hgb9rIY
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
